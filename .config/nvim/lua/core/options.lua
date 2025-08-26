@@ -56,6 +56,7 @@ vim.opt.title = true
 ----------------------------------------
 vim.opt.winwidth = 88
 vim.opt.foldenable = false
+vim.opt.equalalways = false
 
 -- Format options
 if vim.version().minor > 703 then

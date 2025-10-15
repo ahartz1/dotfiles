@@ -1,0 +1,59 @@
+priority -50
+
+global !p
+def category_expand(snip, slashstar=False, offset=0):
+    snip.buffer[snip.line + offset] = snip.buffer[snip.line + offset][:80]
+    l2 = snip.buffer[snip.line + 2 + offset]
+    snip.buffer[snip.line + 2 + offset] = l2[:78] if not slashstar else l2[:75] + ' */'
+
+def category_jump(snip):
+    if snip.tabstop == 2:
+        snip.buffer[snip.line] = snip.buffer[snip.line].upper()[:79]
+        snip.cursor.preserve()
+
+def static_category_expand(snip, linelen=40, offset=0):
+    snip.buffer[snip.line + offset] = snip.buffer[snip.line + offset][:linelen]
+    l2 = snip.buffer[snip.line + 2 + offset]
+    snip.buffer[snip.line + 2 + offset] = l2[:linelen]
+    snip.cursor.preserve()
+endglobal
+
+post_expand "category_expand(snip)"
+post_jump "category_jump(snip)"
+snippet /// "Add a /-based category block" b
+////////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC METHODS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
+//////////////////////////////////////////////////////////////////////////////
+endsnippet
+
+post_expand "category_expand(snip, offset=1)"
+post_jump "category_jump(snip)"
+snippet //// "Add a /-based category block (when /// does not work)" b
+////////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC METHODS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
+//////////////////////////////////////////////////////////////////////////////
+endsnippet
+
+post_expand "category_expand(snip, slashstar=True)"
+post_jump "category_jump(snip)"
+snippet //* "Add a /*-based category block" b
+/* /////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC METHODS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
+/////////////////////////////////////////////////////////////////////////// */
+endsnippet
+
+post_expand "category_expand(snip, slashstar=True, offset=1)"
+post_jump "category_jump(snip)"
+snippet ///* "Add a /*-based category block (when //* does not work)" b
+/* /////////////////////////////////////////////////////////////////////////////
+// ${1:PUBLIC METHODS} ${2:`!p snip.rv = (79 - len(t[1]) - 4) * '/'`}
+/////////////////////////////////////////////////////////////////////////// */
+endsnippet
+
+post_expand "static_category_expand(snip, linelen=40)"
+snippet ## "Add a #-based category block" b
+########################################
+# ${1:Public Methods}
+########################################
+endsnippet
+# vim:ft=snippets:

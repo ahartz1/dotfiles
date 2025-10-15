@@ -1,0 +1,41 @@
+snippet fes "A foreach block" b
+foreach ($${1:things} as $${2:thing}) {
+	$3
+}
+endsnippet
+
+snippet ifs "An if conditional block" b
+if ($1) {
+	$2
+}
+endsnippet
+
+snippet log "Insert a \Log::info() statement" b
+\Log::info($1);
+endsnippet
+
+snippet prf "Create a protected function (with DocBlock)" b
+/**
+ * ${3:Description}
+ *
+ * @return ${4:void}
+ */
+protected function ${1:functionName}($2)
+{
+	${5:return;}
+}
+endsnippet
+
+snippet pf "Create a public function (with DocBlock)" b
+/**
+ * ${3:Description}
+ *
+ * @return ${4:void}
+ */
+public function ${1:functionName}($2)
+{
+	${5:return;}
+}
+endsnippet
+
+# vim:ft=snippets:

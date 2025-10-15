@@ -1,0 +1,45 @@
+global !p
+def set_component_name(snip):
+    if snip.basename != 'index':
+        snip.rv = snip.basename[:1].upper() + snip.basename[1:]
+    else:
+        path_parts = path.split('/')
+        if len(path_parts) >= 2:
+            snip.rv = path_parts[-2][:1].upper() + path_parts[-2][1:]
+        else:
+            snip.rv = 'Component'
+endglobal
+
+snippet rcc "Create React class" b
+import React from 'react';
+
+class ${1:`!p set_component_name(snip)`} extends React.Component {
+	render() {
+		return (
+			${2:<div>$1</div>}
+		);
+	}
+}
+
+export default $1;
+endsnippet
+
+snippet rfc "Create React functional component" b
+import React from 'react';
+
+const ${1:`!p set_component_name(snip)`} = () => {
+	return (
+		${2:<div>$1</div>}
+	);
+};
+
+export default $1;
+endsnippet
+
+snippet ustate "Add a useState statement" b
+const [${1:xxx}, set${1/.+/\u$0/}] = useState($2);
+console.error($1);
+set${1/.+/\u$0/}($2);
+endsnippet
+
+# vim:ft=snippets:

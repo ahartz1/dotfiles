@@ -1,0 +1,1 @@
+/Users/aj/.dotfiles/.vim/bundle/editorconfig-vim/autoload/editorconfig.vim

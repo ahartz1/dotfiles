@@ -47,3 +47,15 @@ if [ -f ~/.dotfiles/.vim/coc-settings.json ] \
   ln -s ~/.dotfiles/.vim/coc-settings.json \
         ~/.config/nvim/coc-settings.json
 fi
+
+# Make sure that NeoVim can use solarized
+if [ -f ~/.dotfiles/.vim/colors/solarized.vim ]; then
+  if [ ! -L ~/.config/nvim/pack/local/start/solarized/colors/solarized.vim ]; then
+    ln -s ~/.dotfiles/.vim/colors/solarized.vim \
+          ~/.config/nvim/pack/local/start/solarized/colors/solarized.vim
+  fi
+  if [ ! -L ~/.config/nvim/pack/local/start/solarized/plugin/solarized.vim ]; then
+    ln -s ~/.dotfiles/.vim/colors/solarized.vim \
+          ~/.config/nvim/pack/local/start/solarized/plugin/solarized.vim
+  fi
+fi

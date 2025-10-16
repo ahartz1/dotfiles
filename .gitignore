@@ -1,5 +1,7 @@
 .bash/db_creds.sh
 .bash/hidden.sh
+.config/nvim/pack/local/start/solarized/colors/solarized.vim
+.config/nvim/pack/local/start/solarized/plugin/solarized.vim
 .eclimrc
 .tmux/plugins/
 .tmux/resurrect/

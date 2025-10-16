@@ -1,1 +1,0 @@
-/Users/adamhartz/.vim/colors/solarized.vim

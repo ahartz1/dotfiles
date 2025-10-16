@@ -78,6 +78,23 @@ map("n", "<Leader>L", ":tabl<CR>")
 -- Close a whole tab, no matter how many windows are in it
 map("n", "<Leader>C", ":tabc<CR>")
 
+-- Function that allows for a count when switching to next tab
+local function aj_next_tab(count)
+  local lasttab = vim.fn.tabpagenr()
+  if count == 0 then
+    count = 1
+  end
+  for _ = 1, count do
+    vim.cmd("tabnext")
+  end
+  vim.g.lasttab = lasttab
+end
+
+-- Map to g<C-t>
+vim.keymap.set("n", "g<C-t>", function()
+  aj_next_tab(vim.v.count)
+end, { silent = true })
+
 ----------------------------------------
 -- VIMRC MANAGEMENT
 ----------------------------------------

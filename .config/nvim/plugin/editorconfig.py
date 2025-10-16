@@ -1,1 +1,0 @@
-/Users/aj/.dotfiles/.vim/bundle/editorconfig-vim/plugin/editorconfig.py

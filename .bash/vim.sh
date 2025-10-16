@@ -41,7 +41,7 @@ if [ -d ~/.dotfiles/.vim/bundle/editorconfig-vim ]; then
   fi
 fi
 
-# Ensure that nvim knows about coc-settings
+# Ensure that NeoVim knows about coc-settings
 if [ -f ~/.dotfiles/.vim/coc-settings.json ] \
     && [ ! -L ~/.config/nvim/coc-settings.json ]; then
   ln -s ~/.dotfiles/.vim/coc-settings.json \
@@ -58,4 +58,29 @@ if [ -f ~/.dotfiles/.vim/colors/solarized.vim ]; then
     ln -s ~/.dotfiles/.vim/colors/solarized.vim \
           ~/.config/nvim/pack/local/start/solarized/plugin/solarized.vim
   fi
+fi
+
+# Ensure that NeoVim shares plugins with Vim
+if [ -f ~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/editorconfig.vim ] \
+    && [ ! -L ~/.config/nvim/plugin/editorconfig.vim ]; then
+  ln -s ~/.dotfiles/.vim/bundle/editorconfig-vim/plugin/editorconfig.vim \
+        ~/.config/nvim/plugin/editorconfig.vim
+fi
+
+if [ -f ~/.dotfiles/.vim/plugin/ajgitcommitmsg.vim ] \
+    && [ ! -L ~/.config/nvim/plugin/ajgitcommitmsg.vim ]; then
+  ln -s ~/.dotfiles/.vim/plugin/ajgitcommitmsg.vim \
+        ~/.config/nvim/plugin/ajgitcommitmsg.vim
+fi
+
+if [ -f ~/.dotfiles/.vim/plugin/delete-non-window-buffers.vim ] \
+    && [ ! -L ~/.config/nvim/plugin/delete-non-window-buffers.vim ]; then
+  ln -s ~/.dotfiles/.vim/plugin/delete-non-window-buffers.vim \
+        ~/.config/nvim/plugin/delete-non-window-buffers.vim
+fi
+
+if [ -f ~/.dotfiles/.vim/plugin/grep-operator.vim ] \
+    && [ ! -L ~/.config/nvim/plugin/grep-operator.vim ]; then
+  ln -s ~/.dotfiles/.vim/plugin/grep-operator.vim \
+        ~/.config/nvim/plugin/grep-operator.vim
 fi

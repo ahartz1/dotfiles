@@ -81,6 +81,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = augroup("python_requirements"),
+  pattern = { "requirements*.txt" },
+  callback = function()
+    vim.opt.filetype = "requirements"
+  end,
+})
+
 ----------------------------------------
 -- SYNTAX HIGHLIGHTING
 ----------------------------------------

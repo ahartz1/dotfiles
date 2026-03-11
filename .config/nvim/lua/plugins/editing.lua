@@ -84,6 +84,7 @@ return {
         markdown = { "prettier" },
         scss = { "prettier" },
         typescript = { "prettier" },
+        typescriptreact = { "prettier" },
         vue = { "prettier" },
         -- xml = { "xmlformatter" },
       },

@@ -99,11 +99,11 @@ end
 -- Move current line to reading height
 function _G.ReadingHeight()
   local win_height = vim.fn.winheight(0)
-  local offset = math.floor(win_height / 4.0)
+  local offset = math.floor(win_height / 4.0) - vim.opt.scrolloff:get()
   -- First move the line to top of window
-  vim.cmd("normal! zz")
+  vim.cmd("normal! zt")
   -- Then scroll down by offset lines
-  vim.cmd('execute "normal! ' .. offset .. '\\<C-E>"')
+  vim.cmd('execute "normal! ' .. offset .. '\\<C-Y>"')
 end
 
 ----------------------------------------

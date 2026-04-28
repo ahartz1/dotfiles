@@ -876,6 +876,7 @@ exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 "}}}
 " pandoc markdown syntax highlighting "{{{
 " ---------------------------------------------------------------------
+exe "hi! @markup.raw.block"              .s:fmt_none  .s:fg_base0  .s:bg_none
 
 "PandocHiLink pandocNormalBlock
 exe "hi! pandocTitleBlock"               .s:fg_blue   .s:bg_none   .s:fmt_none
@@ -1020,6 +1021,12 @@ exe "hi! Repeat"                         .s:fg_green   .s:bg_none   .s:fmt_none
 exe "hi! Statement"                      .s:fg_green   .s:bg_none   .s:fmt_none
 exe "hi! String"                         .s:fg_cyan    .s:bg_none   .s:fmt_none
 exe "hi! Structure"                      .s:fg_yellow  .s:bg_none   .s:fmt_none
+" in markdown
+exe "hi! @variable.builtin"              .s:fmt_none   .s:fg_blue   .s:bg_none
+exe "hi! @constant.builtin"              .s:fmt_none   .s:fg_yellow .s:bg_none
+exe "hi! @type.builtin"                  .s:fmt_none   .s:fg_yellow .s:bg_none
+exe "hi! @function.builtin"              .s:fmt_none   .s:fg_yellow .s:bg_none
+
 "}}}
 " terminal highlighting "{{{
 " ---------------------------------------------------------------------
